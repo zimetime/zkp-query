@@ -1,0 +1,105 @@
+name: Documentation
+description: Report a documentation issue or suggest documentation improvements
+title: "[DOCS] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation!
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation issue is this?
+      options:
+        - Missing documentation
+        - Incorrect/outdated information
+        - Unclear or confusing explanation
+        - Code example issue
+        - Typo or grammar error
+        - Formatting issue
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Describe the documentation problem or improvement
+      placeholder: What documentation issue did you find?
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is this documentation? (file path, section, URL if applicable)
+      placeholder: |
+        - File: [e.g., README.md, src/circuit/mod.rs]
+        - Section: [e.g., "Architecture", "Building"]
+        - Line numbers: [if applicable]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc-section
+    attributes:
+      label: Documentation Section
+      description: Which section of the documentation?
+      options:
+        - README.md
+        - Code comments / doc comments
+        - Architecture documentation
+        - API documentation
+        - Contributing guidelines
+        - Examples
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Documentation (if applicable)
+      description: Paste the current documentation that needs improvement
+      placeholder: |
+        ```markdown
+        Current documentation here...
+        ```
+      render: markdown
+
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested Improvement
+      description: How should the documentation be improved?
+      placeholder: |
+        ```markdown
+        Suggested improved documentation here...
+        ```
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional context about why this documentation change is needed
+      placeholder: |
+        - What was confusing?
+        - What information is missing?
+        - How would this help users?
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to submit a PR to fix this documentation issue
+          required: false
+

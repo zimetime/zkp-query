@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security Vulnerability
+    url: https://github.com/nzengi/zkp-query/security/advisories/new
+    about: Please report security vulnerabilities through GitHub's security advisory system
+  - name: Question or Discussion
+    url: https://github.com/nzengi/zkp-query/discussions
+    about: Ask questions or start a discussion
+
