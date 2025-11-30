@@ -1,0 +1,135 @@
+name: Performance Issue
+description: Report a performance problem or suggest a performance improvement
+title: "[PERF] "
+labels: ["performance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a performance issue!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Performance Issue Description
+      description: Describe the performance problem or improvement opportunity
+      placeholder: What is slow or could be optimized?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which component has the performance issue?
+      options:
+        - Circuit Generation
+        - Proof Generation (Prover)
+        - Proof Verification
+        - Range Check Gate
+        - Sort Gate
+        - Group-By Gate
+        - Join Gate
+        - Aggregation Gate
+        - Recursive Proof Composition
+        - Database Operations
+        - Overall System
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: benchmark
+    attributes:
+      label: Benchmark / Test Case
+      description: Provide a benchmark or test case that demonstrates the performance issue
+      placeholder: |
+        ```rust
+        // Your benchmark code here
+        // Include input sizes, expected vs actual performance
+        ```
+      render: rust
+    validations:
+      required: true
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Performance Metrics
+      description: What metrics are you measuring? (e.g., proof generation time, memory usage, circuit size)
+      placeholder: |
+        - Proof generation time: X seconds
+        - Memory usage: Y MB
+        - Circuit size: Z constraints
+        - Throughput: N queries/second
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-performance
+    attributes:
+      label: Current Performance
+      description: Current performance characteristics
+      placeholder: |
+        - Input size: [e.g., 1000 rows, 10 columns]
+        - Time: [e.g., 5 seconds]
+        - Memory: [e.g., 500 MB]
+        - Constraints: [e.g., 10000]
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-performance
+    attributes:
+      label: Expected/Target Performance
+      description: What performance do you expect or need?
+      placeholder: |
+        - Target time: [e.g., 2 seconds]
+        - Target memory: [e.g., 200 MB]
+        - Target constraints: [e.g., 5000]
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: System environment details
+      placeholder: |
+        - OS: [e.g., Linux, macOS, Windows]
+        - CPU: [e.g., Intel i7, AMD Ryzen]
+        - RAM: [e.g., 16 GB]
+        - Rust version: [e.g., 1.75.0]
+        - Build mode: [e.g., release, debug]
+    validations:
+      required: true
+
+  - type: textarea
+    id: profiling
+    attributes:
+      label: Profiling Results (Optional)
+      description: If you've done any profiling, share the results
+      placeholder: |
+        - Hot spots identified
+        - Bottlenecks found
+        - Profiling tool used (e.g., perf, cargo flamegraph)
+      render: markdown
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Optimization Suggestions (Optional)
+      description: Do you have ideas for how to optimize this?
+      placeholder: |
+        - Potential algorithmic improvements
+        - Data structure optimizations
+        - Parallelization opportunities
+      render: markdown
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context about the performance issue
+      placeholder: Additional information that might be helpful...
+

@@ -1,0 +1,38 @@
+version: 2
+updates:
+  # Enable version updates for Cargo (Rust)
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "rust"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # Group updates for better PR management
+    groups:
+      halo2:
+        patterns:
+          - "halo2*"
+      serde:
+        patterns:
+          - "serde*"
+      minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    # Ignore major version updates for critical dependencies
+    ignore:
+      # Halo2 major version updates should be reviewed carefully
+      - dependency-name: "halo2_proofs"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "pasta_curves"
+        update-types:
+          - "version-update:semver-major"
+
